@@ -1,0 +1,64 @@
+<p-dialog header="Editar evento" [modal]="true" [(visible)]="visible" [style]="{ 'width': '25rem' }">
+  <form [formGroup]="formEvent" >
+
+    <div class="form-group name-event">
+      <label>Nombre del evento</label>
+      <input pInputText formControlName="name" name="name"
+        [ngClass]="{'ng-invalid ng-dirty': name && name.invalid && (name.dirty || name.touched)}" />
+
+    </div>
+
+    <div class="form-group ">
+      <label>Dia</label>
+      <p-calendar [iconDisplay]="'input'" [showIcon]="true" inputId="icondisplay" formControlName="day" [style]="{
+         'width': '100%'
+      }" [ngClass]="{'ng-invalid ng-dirty': day && day.invalid && (day.dirty || day.touched)}" />
+    </div>
+
+    <div class="form-group">
+      <label>Hora</label>
+      <p-calendar [iconDisplay]="'input'" [showIcon]="true" [timeOnly]="true" inputId="templatedisplay"
+        formControlName="hour" [style]="{
+         'width': '100%'
+      }" [ngClass]="{'ng-invalid ng-dirty': hour && hour.invalid && (hour.dirty || hour.touched)}">
+        <ng-template pTemplate="inputicon" let-clickCallBack="clickCallBack">
+          <i class="pi pi-clock pointer-events-none" (click)="clickCallBack($event)"></i>
+        </ng-template>
+      </p-calendar>
+    </div>
+
+    <div class="form-group">
+      <label>Ubicación</label>
+      <input pInputText formControlName="address"
+        [ngClass]="{'ng-invalid ng-dirty': address && address.invalid && (address.dirty || address.touched)}"
+        name="address" [style]="{
+        'width': '100%'
+    }" />
+    </div>
+
+    <div class="form-group">
+      <label>Estado del evento</label>
+      <p-dropdown [options]="stateEvent" optionLabel="name" optionValue="id" formControlName="state" [style]="{
+        'width': '100%'
+    }" [ngClass]="{'ng-invalid ng-dirty': state && state.invalid && (state.dirty || state.touched)}" />
+    </div>
+
+    <div class="form-group textarea">
+      <label>Detalle del evento</label>
+      <textarea rows="5" cols="30" pInputTextarea formControlName="details"
+        [ngClass]="{'ng-invalid ng-dirty': details && details.invalid && (details.dirty || details.touched)}">
+    </textarea>
+    </div>
+
+    <div class="container-buttons">
+      <p-button label="Cancel" class="cancel" [style]="{
+        'color':'rgba(36, 78, 243, 0.94)'
+      }"  (onClick)="cancel()"/>
+      
+      <p-button label="Save" (onClick)="accept()"   class="accept" />
+    </div>
+  </form>
+
+</p-dialog>
+
+<p-toast />

@@ -1,0 +1,48 @@
+
+.container-form{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 64vh;
+}
+
+h1{
+  text-align: center;
+  color: var(--color-title);
+}
+label{
+  color:#fff;
+}
+
+
+form{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  height: 400px;
+  width: 400px;
+  padding: 1em;
+  border-radius: 8px;
+  background-color: var(--color-blue);
+}
+
+.form-group{  
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.submit{
+
+  color: var(--color-blue);
+  background-color: var(--color-primary);
+}
+
+.submit:hover{
+  outline: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  background-color: var(--color-blue);
+}

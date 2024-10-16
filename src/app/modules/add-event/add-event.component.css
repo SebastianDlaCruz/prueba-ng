@@ -1,0 +1,52 @@
+
+.container-form{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.title{
+  color:  rgba(43, 43, 255, 0.86);
+  text-align: center;
+}
+
+form{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-height: auto;
+  width: 600px;
+  padding: 1em;
+  border-radius: 8px;
+  background-color: var(--color-blue);
+}
+
+label{
+  color:#fff;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.name-event ,.textarea{
+  width: 100%;
+}
+.submit{
+  color: var(--color-blue);
+  background-color: var(--color-primary);
+}
+
+.submit:hover{
+  outline: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  background-color: var(--color-blue);
+}
+
+.invalid{
+  color: rgb(196, 8, 8);
+}

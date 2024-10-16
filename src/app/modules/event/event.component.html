@@ -1,0 +1,27 @@
+<app-menu></app-menu>
+
+@if (viewEvent) {
+<header>
+  <h1 class="title">{{viewEvent.name}}</h1>
+</header>
+
+<main>
+  <section class="details">
+    <h2>Detalle del evento</h2>
+    <p>{{viewEvent.details}}</p>
+  </section>
+
+  <section>
+    <h2>Fecha y hora</h2>
+    <strong>{{viewEvent.day | date:'dd/MM/yyyy'}} - {{viewEvent.hour | date: 'HH:mm' }}</strong>
+  </section>
+
+  <section>
+    <h2>Ubicación</h2>
+    <strong>{{viewEvent.address}}</strong>
+  </section>
+
+</main>
+}@else{
+<h2>Algo salio mal :c </h2>
+}

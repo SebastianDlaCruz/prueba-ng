@@ -1,0 +1,92 @@
+<p-table #dt1 [value]="events" responsiveLayout="stack" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 20]"
+  [breakpoint]="'960px'" [tableStyle]="{
+      'min-width': '50rem',
+    }" [globalFilterFields]="['name','address','day']">
+
+  <ng-template pTemplate="caption">
+
+    <div class="container-filter">
+
+      <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (onClick)="clear(dt1)" />
+      <p-iconField iconPosition="left">
+        <p-inputIcon>
+          <i class="pi pi-search"></i>
+        </p-inputIcon>
+        <input pInputText #search type="text" [(ngModel)]="searchValue"
+          (input)="dt1.filterGlobal(search.value, 'contains')" placeholder="Keyboard Search" />
+      </p-iconField>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th>Nombre</th>
+      <th>Dia</th>
+      <th>Hora</th>
+      <th>Dirección</th>
+      <th>Estado</th>
+      <th style="width: 5rem"></th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-event let-columns="columns">
+    <tr>
+      <td>
+        {{event.name}}
+      </td>
+      <td>
+        {{event.day | date:'dd/MM/yyyy'}}
+      </td>
+      <td>
+        {{event.hour | date: 'HH:mm' }}
+      </td>
+      <td>
+        {{event.address}}
+      </td>
+      <td>
+        <app-state-event [state]="event.state"></app-state-event>
+      </td>
+      <td style="text-align: center">
+        <div class="container-button">
+
+          @if(getRol() === 'admin'){
+          <p-button icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true" severity="success"
+            (click)="onUpdate(event.id)" />
+
+
+          <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true"
+            (click)="onDelete(event.id)" />
+          }
+
+          <p-button icon="pi pi-eye" severity="info" [rounded]="true" [outlined]="true" (click)="onView(event.id)" />
+
+        </div>
+
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-toast />
+<p-confirmDialog #cd>
+  <ng-template pTemplate="headless" let-message>
+    <div class="modal-confirm">
+      <div class="container-icon">
+        <i class="pi pi-question icon"></i>
+      </div>
+      <span class="font-bold">
+        {{ message.header }}
+      </span>
+      <p>{{ message.message }}</p>
+      <div class="container-button__confirm">
+        <button pButton label="Save" (click)="cd.accept()" class="confirm">
+        </button>
+        <button pButton label="Cancel" (click)="cd.reject()" class="cancel">
+        </button>
+      </div>
+    </div>
+  </ng-template>
+
+</p-confirmDialog>
+<app-modal-edit [idEvent]="idEvent" [visible]="visible" (onAccept)="onAccept()"
+  (onCancel)="onCancel()"></app-modal-edit>

@@ -1,0 +1,22 @@
+.container-menu{
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 20px;
+  background-color: #fff;
+}
+.title-menu{
+  font-weight: bold;
+  color:var(--color-text);
+}
+.menu{
+  padding:120px;
+}
+.menu-items{
+  font-size: 1.4rem;
+  padding: 12px 1rem;
+  cursor: pointer;
+  color: var(--color-blue);
+  text-decoration: none;
+}
+
+

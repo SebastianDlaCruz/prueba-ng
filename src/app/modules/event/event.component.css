@@ -1,0 +1,16 @@
+.title{
+  color: rgb(69, 116, 219);
+
+}
+
+header,main{
+  padding-left: 15px;
+}
+h2{
+  color: rgb(69, 116, 219);
+}
+main{
+  padding-top: 5px;
+  color: var(--color-text);
+  text-align: left;
+}

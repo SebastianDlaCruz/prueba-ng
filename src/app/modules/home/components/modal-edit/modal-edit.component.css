@@ -1,0 +1,62 @@
+.container-form{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.title{
+  color:  rgba(43, 43, 255, 0.86);
+  text-align: center;
+}
+
+form{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  height: 500px;
+  width: 100%;
+  min-height: auto;
+  padding: 1em;
+}
+
+.container-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  height: 100px;
+  margin: 12px 0;
+  width: 100%;
+
+}
+
+label{
+  color:#777676;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.name-event ,.textarea{
+  width: 100%;
+}
+
+.accept{
+  border-radius: 6px;
+  background-color: rgba(36, 78, 243, 0.94);
+}
+
+.cancel{
+  border-radius: 6px;
+  border: 1px solid rgba(36, 78, 243, 0.94);
+}
+
+.gap-12{
+  gap:12px;
+}
